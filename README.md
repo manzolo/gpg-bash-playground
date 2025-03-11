@@ -36,8 +36,8 @@ The **GPG Playground Script** is a Bash script that demonstrates the use of GPG 
     sudo ./gpg.sh
     ```
 
-## Try inside a docker container
-    ```bash
+## Try inside a docker container    
+```bash
     git clone https://github.com/manzolo/gpg-bash-playground.git
     cd gpg-bash-playground
     docker build -t manzolo/gpg-playground .
@@ -47,7 +47,7 @@ The **GPG Playground Script** is a Bash script that demonstrates the use of GPG 
     docker run --rm -it -v $(pwd)/tmp:/workspace/tmp manzolo/gpg-playground
     # Debug mode
     docker run --rm -it -v $(pwd)/tmp:/workspace/tmp manzolo/gpg-playground -d
-    ```
+```
 
 ## Example Output
 
