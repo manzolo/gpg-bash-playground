@@ -28,12 +28,12 @@ The **GPG Playground Script** is a Bash script that demonstrates the use of GPG 
 
 2. Make the script executable:
     ```bash
-    chmod +x gpg_playground.sh
+    chmod +x gpg.sh
     ```
 
 3. Run the script:
     ```bash
-    sudo ./gpg_playground.sh
+    sudo ./gpg.sh
     ```
 
 ## Example Output
