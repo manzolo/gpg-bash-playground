@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Configurations
-EXPORT_DIR='/tmp'
+EXPORT_DIR="${EXPORT_DIR:-/tmp}"  # Use environment variable or default to /tmp
 LOG_FILE="${0}.log"
 GPG_LOG_FILE="${EXPORT_DIR}/gpg_install.log"
 ALICE="alice"
@@ -288,3 +288,5 @@ decrypt_message "$BOB" "$CAROL" || log_error "Decryption by Bob failed."
 cleanup
 
 log_message "INFO" "Script completed."
+
+cat $LOG_FILE

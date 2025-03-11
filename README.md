@@ -36,6 +36,19 @@ The **GPG Playground Script** is a Bash script that demonstrates the use of GPG 
     sudo ./gpg.sh
     ```
 
+## Try inside a docker container
+    ```bash
+    git clone https://github.com/manzolo/gpg-bash-playground.git
+    cd gpg-bash-playground
+    docker build -t manzolo/gpg-playground .
+    mkdir -p tmp
+    chmod 777 -R tmp
+    # Standard mode
+    docker run --rm -it -v $(pwd)/tmp:/workspace/tmp manzolo/gpg-playground
+    # Debug mode
+    docker run --rm -it -v $(pwd)/tmp:/workspace/tmp manzolo/gpg-playground -d
+    ```
+
 ## Example Output
 
 ```
@@ -67,6 +80,7 @@ The **GPG Playground Script** is a Bash script that demonstrates the use of GPG 
 2025-03-11 20:32:26 - [INFO] - bob is attempting to decrypt the message from carol...
 2025-03-11 20:32:26 - [INFO] - Message from carol successfully decrypted by bob: Secret message from carol to bob
 2025-03-11 20:32:26 - [INFO] - Cleaning up temporary files and users...
+...
 2025-03-11 20:32:26 - [INFO] - Killing gpg-agent process...
 2025-03-11 20:32:26 - [INFO] - gpg-agent killed successfully.
 2025-03-11 20:32:26 - [INFO] - User alice removed successfully.
