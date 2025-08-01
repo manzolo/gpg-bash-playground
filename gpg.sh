@@ -173,8 +173,9 @@ encrypt_message() {
     sudo chmod 777 "$MESSAGE_FILE"
     log_message "INFO" "$SENDER is encrypting $MESSAGE_FILE for $RECIPIENT..."
     OUTPUT=$(sudo -u "$SENDER" gpg --yes --encrypt --recipient "$RECIPIENT" --output "$ENCRYPTED_FILE" "$MESSAGE_FILE" 2>&1)
+    GPG_EXIT_CODE=$?
     log_command_output "$OUTPUT"
-    if [ $? -eq 0 ]; then
+    if [ $GPG_EXIT_CODE -eq 0 ]; then
         log_message "INFO" "$SENDER successfully encrypted a message for $RECIPIENT."
     else
         log_error "Failed to encrypt message from $SENDER for $RECIPIENT."
